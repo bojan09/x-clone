@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from "./Image";
 
 const menuList = [
   {
@@ -71,7 +71,7 @@ export default function LeftBar() {
       <div className="h-screen sticky top-0 flex flex-col justify-between pt-2 pb-8">
         {/* Logo */}
         <Link href="/" className="p-2 rounded-full hover:bg-[#181818]">
-          <Image src="/icons/logo.svg" alt="logo" width={24} height={24} />
+          <Image path="/icons/logo.svg" alt="logo" width={24} height={24} />
         </Link>
 
         {/* Menu List */}
@@ -83,7 +83,7 @@ export default function LeftBar() {
               key={item.id}
             >
               <Image
-                src={`icons/${item.icon}`}
+                path={`icons/${item.icon}`}
                 alt={item.name}
                 width={24}
                 height={24}
@@ -92,9 +92,38 @@ export default function LeftBar() {
             </Link>
           ))}
         </div>
+        {/* Button */}
+        <Link
+          href="/compose/post"
+          className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xxl:hidden"
+        >
+          <Image path="icons/post.svg" alt="new post" width={24} height={24} />
+        </Link>
+        <Link
+          href="/compose/post"
+          className="hidden xxl:block bg-white text-black rounded-full font-bold py-2 px-20"
+        >
+          Post
+        </Link>
       </div>
       {/* User */}
-      <div className="">User</div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="w-10 h-10 relative rounded-full overflow-hidden">
+            <Image
+              path="/general/avatar.jpg"
+              alt="i'm batman"
+              width={100}
+              height={100}
+            />
+          </div>
+          <div className="hidden xxl:flex flex-col">
+            <span className="font-bold">Not Batman</span>
+            <span className="text-sm text-textGray">bruce_wayne@gmail.com</span>
+          </div>
+        </div>
+        <div className="hidden xxl:block cursor-pointer font-bold">...</div>
+      </div>
     </div>
   );
 }
