@@ -10,12 +10,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex justify-between items-center">
-          <section>
+        <div className="max-w-screen-md lg:max-w-lg xxl:max-w-xxl flex mx-auto justify-between items-center ">
+          <section className="px-2 ">
             <LeftBar />
           </section>
-          <section>{children}</section>
-          <section>
+          <section className="flex-1 lg:min-w-[600px] border-x-[1px] border-borderGray">
+            {children}
+          </section>
+          <section className="hidden lg:flex ml-4 md:ml-8 flex-1">
             <RightBar />
           </section>
         </div>
