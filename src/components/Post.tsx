@@ -34,7 +34,7 @@ const Post = () => {
             <PostInfo />
           </div>
           {/* Text & Media */}
-          <p className="">
+          <p className="mb-2">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
             doloribus rerum eos, sint ab repellat excepturi dicta nobis non
             corporis deserunt facilis voluptatem temporibus? Vitae!

@@ -1,6 +1,16 @@
+"use client";
 import Image from "@/components/Image";
+import { useState } from "react";
 
 const Share = () => {
+  const [media, setMedia] = useState<File | null>(null);
+
+  const handleMediaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setMedia(e.target.files[0]);
+    }
+  };
+
   return (
     <div className="p-4 flex gap-4">
       {/* Avatar */}
@@ -15,16 +25,28 @@ const Share = () => {
       </div>
       {/* Others */}
       <div className="flex-1 flex flex-col gap-4">
-        <input type="text" placeholder="What is happening?" />
-        <div className="">
+        <input
+          type="text"
+          placeholder="What is happening?"
+          className="bg-transparent outline-none placeholder-textGray text-xl"
+        />
+        <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="flex gap-4 flex-wrap">
-            <Image
-              path="icons/image.svg"
-              alt="icon"
-              width={20}
-              height={20}
-              className="cursor-pointer"
+            <input
+              type="file"
+              onChange={handleMediaChange}
+              className="hidden"
+              id="file"
             />
+            <label htmlFor="file">
+              <Image
+                path="icons/image.svg"
+                alt="icon"
+                width={20}
+                height={20}
+                className="cursor-pointer"
+              />
+            </label>
 
             <Image
               path="icons/gif.svg"
