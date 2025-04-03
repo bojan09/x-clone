@@ -2,7 +2,7 @@ import Image from "@/components/Image";
 import PostInfo from "@/components/PostInfo";
 import PostInteractions from "@/components/PostInteractions";
 
-const Post = () => {
+const Post = async () => {
   return (
     <div className="p-4 border-y-[1px] border-borderGray">
       {/* Post type */}
@@ -45,6 +45,7 @@ const Post = () => {
             width={600}
             height={600}
           />
+
           <PostInteractions />
         </div>
       </div>
