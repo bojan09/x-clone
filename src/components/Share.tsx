@@ -27,7 +27,10 @@ const Share = () => {
 
   return (
     // Upload Form
-    <form action={shareAction} className="p-4 flex gap-4">
+    <form
+      className="p-4 flex gap-4"
+      action={(formData) => shareAction(formData, settings)}
+    >
       {/* Avatar */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden">
         <Image
@@ -55,8 +58,18 @@ const Share = () => {
               alt="preview image"
               width={600}
               height={600}
+              className={`w-full ${
+                settings.type === "original"
+                  ? "h-full object-contain"
+                  : settings.type === "square"
+                  ? "aspect-square object-cover"
+                  : "aspect-video object-cover"
+              }`}
             />
-            <div className="absolute top-2 left-2 bg-black bg-opacity-50 text-whitep py-1 px-4 rounded-full font-bold text-sm cursor-pointer">
+            <div
+              className="absolute top-2 left-2 bg-black bg-opacity-50 text-whitep py-1 px-4 rounded-full font-bold text-sm cursor-pointer"
+              onClick={() => setIsEditorOpen(true)}
+            >
               Edit
             </div>
           </div>
