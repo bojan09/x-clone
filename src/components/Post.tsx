@@ -7,7 +7,7 @@ const Post = async () => {
     <div className="p-4 border-y-[1px] border-borderGray">
       {/* Post type */}
       <div className="flex items-center gap-2 text-sm text-textGray mb-2 font-bold">
-        icon
+        {/* Icon */}
         <span>Batman reposted</span>
       </div>
       {/* Post content */}
